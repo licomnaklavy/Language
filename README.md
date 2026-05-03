@@ -102,11 +102,13 @@ language-platform/
 
 Для проверки работы импорта слов в словарь можно использовать файл со следующим содержимым:
 
+```
 apple|яблоко|I eat an apple every day
 cat|кот|My cat is black
 dog|собака|The dog is barking
 house|дом|My house is big
 car|машина|I drive a red car
+```
 
 ## Используемые ключи localStorage
 
