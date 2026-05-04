@@ -1,6 +1,5 @@
 import { updateAchievements } from './achievements.js';
 
-// Данные курсов
 const coursesData = {
     1: {
         id: 1,
@@ -14,10 +13,8 @@ const coursesData = {
                 theory: `
                     <h2>Алфавит и произношение</h2>
                     <p>Английский алфавит состоит из 26 букв. Освоение алфавита - первый шаг к изучению языка.</p>
-                    
                     <h3>Английский алфавит:</h3>
                     <p>Aa, Bb, Cc, Dd, Ee, Ff, Gg, Hh, Ii, Jj, Kk, Ll, Mm, Nn, Oo, Pp, Qq, Rr, Ss, Tt, Uu, Vv, Ww, Xx, Yy, Zz</p>
-                    
                     <h3>Основные звуки:</h3>
                     <ul>
                         <li>[æ] - как в слове "cat" (кэт) - кот</li>
@@ -25,17 +22,14 @@ const coursesData = {
                         <li>[iː] - как в слове "see" (си) - видеть</li>
                         <li>[e] - как в слове "bed" (бэд) - кровать</li>
                     </ul>
-                    
                     <div class="example">
                         <strong>Примеры для практики:</strong><br>
                         cat - кот<br>
                         dog - собака<br>
                         sun - солнце
                     </div>
-
                     <h2>Личные местоимения и глагол to be</h2>
                     <p>Личные местоимения указывают на лицо или предмет, о котором идёт речь.</p>
-                    
                     <h3>Личные местоимения:</h3>
                     <ul>
                         <li>I - я</li>
@@ -46,16 +40,14 @@ const coursesData = {
                         <li>we - мы</li>
                         <li>they - они</li>
                     </ul>
-                    
-                    <h3>Глагол to be (быть, находиться):</h3>
+                    <h3>Глагол to be:</h3>
                     <ul>
-                        <li>I am - я есть / я нахожусь</li>
+                        <li>I am - я есть</li>
                         <li>you are - ты есть</li>
-                        <li>he / she / it is - он / она / оно есть</li>
+                        <li>he/she/it is - он/она/оно есть</li>
                         <li>we are - мы есть</li>
                         <li>they are - они есть</li>
                     </ul>
-                    
                     <div class="example">
                         <strong>Примеры:</strong><br>
                         I am a student. - Я студент.<br>
@@ -76,51 +68,26 @@ const coursesData = {
                 id: 1,
                 title: "Present Simple и Present Continuous",
                 theory: `
-                    <h2>Present Simple (Настоящее простое время)</h2>
-                    <p>Используется для описания обычных, регулярных действий, фактов и привычек.</p>
-                    
+                    <h2>Present Simple</h2>
+                    <p>Используется для описания обычных, регулярных действий.</p>
                     <h3>Образование:</h3>
                     <ul>
-                        <li>I/You/We/They + глагол (без изменений)</li>
+                        <li>I/You/We/They + глагол</li>
                         <li>He/She/It + глагол + -s</li>
                     </ul>
-                    
-                    <h3>Примеры:</h3>
-                    <ul>
-                        <li>I work every day. - Я работаю каждый день.</li>
-                        <li>She speaks English. - Она говорит по-английски.</li>
-                        <li>The sun rises in the east. - Солнце встаёт на востоке.</li>
-                    </ul>
-                    
-                    <h3>Слова-маркеры:</h3>
-                    <p>always, usually, often, sometimes, never, every day/week/month</p>
-                    
                     <div class="example">
-                        <strong>Примеры для практики:</strong><br>
-                        I always drink coffee in the morning.<br>
-                        They go to the gym on Mondays.<br>
-                        He reads books every evening.
+                        <strong>Примеры:</strong><br>
+                        I work every day.<br>
+                        She speaks English.
                     </div>
-                    
-                    <h2>Present Continuous (Настоящее длительное время)</h2>
-                    <p>Используется для описания действий, происходящих прямо сейчас или в текущий период времени.</p>
-                    
+                    <h2>Present Continuous</h2>
+                    <p>Используется для описания действий, происходящих прямо сейчас.</p>
                     <h3>Образование:</h3>
                     <p>am/is/are + глагол + -ing</p>
-                    
-                    <h3>Примеры:</h3>
-                    <ul>
-                        <li>I am reading a book now. - Я читаю книгу сейчас.</li>
-                        <li>She is studying for exams this week. - Она готовится к экзаменам на этой неделе.</li>
-                    </ul>
-                    
-                    <h3>Слова-маркеры:</h3>
-                    <p>now, at the moment, today, this week/month</p>
-                    
                     <div class="example">
-                        <strong>Сравнение:</strong><br>
-                        I work (обычно) - I am working (прямо сейчас)<br>
-                        She cooks (вообще) - She is cooking (в данный момент)
+                        <strong>Примеры:</strong><br>
+                        I am reading a book now.<br>
+                        She is studying.
                     </div>
                 `
             },
@@ -128,72 +95,29 @@ const coursesData = {
                 id: 2,
                 title: "Past Simple и Future Simple",
                 theory: `
-                    <h2>Past Simple (Прошедшее простое время)</h2>
+                    <h2>Past Simple</h2>
                     <p>Используется для описания завершённых действий в прошлом.</p>
-                    
                     <h3>Образование правильных глаголов:</h3>
                     <p>глагол + -ed</p>
-                    
-                    <h3>Примеры правильных глаголов:</h3>
-                    <ul>
-                        <li>work → worked</li>
-                        <li>play → played</li>
-                        <li>study → studied</li>
-                    </ul>
-                    
-                    <h3>Неправильные глаголы (нужно запомнить):</h3>
+                    <h3>Неправильные глаголы:</h3>
                     <ul>
                         <li>go → went</li>
                         <li>eat → ate</li>
                         <li>see → saw</li>
-                        <li>have → had</li>
-                        <li>be → was/were</li>
                     </ul>
-                    
-                    <h3>Примеры:</h3>
-                    <ul>
-                        <li>I visited London last year. - Я посетил Лондон в прошлом году.</li>
-                        <li>She went to the cinema yesterday. - Она ходила в кино вчера.</li>
-                    </ul>
-                    
-                    <h3>Слова-маркеры:</h3>
-                    <p>yesterday, last week/month/year, ago, in 2020</p>
-                    
                     <div class="example">
-                        <strong>Примеры для практики:</strong><br>
-                        I watched an interesting film yesterday.<br>
-                        They arrived two hours ago.<br>
-                        She bought a new car last month.
+                        <strong>Примеры:</strong><br>
+                        I visited London last year.<br>
+                        She went to the cinema yesterday.
                     </div>
-                    
-                    <h2>Future Simple (Будущее простое время)</h2>
-                    <p>Используется для описания действий, которые произойдут в будущем.</p>
-                    
+                    <h2>Future Simple</h2>
+                    <p>Используется для описания действий в будущем.</p>
                     <h3>Образование:</h3>
-                    <p>will + глагол (без изменений)</p>
-                    
-                    <h3>Примеры:</h3>
-                    <ul>
-                        <li>I will call you tomorrow. - Я позвоню тебе завтра.</li>
-                        <li>She will be a doctor. - Она будет врачом.</li>
-                        <li>We will travel to Paris next summer. - Мы поедем в Париж следующим летом.</li>
-                    </ul>
-                    
-                    <h3>Сокращённая форма:</h3>
-                    <p>will = 'll (I'll, you'll, she'll, etc.)</p>
-                    
-                    <h3>Отрицательная форма:</h3>
-                    <p>will not = won't</p>
-                    
-                    <h3>Слова-маркеры:</h3>
-                    <p>tomorrow, next week/month/year, soon, in the future</p>
-                    
+                    <p>will + глагол</p>
                     <div class="example">
-                        <strong>Все три времени в сравнении:</strong><br>
-                        I work every day. (Present Simple - обычно)<br>
-                        I am working now. (Present Continuous - сейчас)<br>
-                        I worked yesterday. (Past Simple - вчера)<br>
-                        I will work tomorrow. (Future Simple - завтра)
+                        <strong>Примеры:</strong><br>
+                        I will call you tomorrow.<br>
+                        She will be a doctor.
                     </div>
                 `
             }
@@ -218,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadProgress() {
-    const savedProgress = JSON.parse(localStorage.getItem('languege_completed_lessons') || '{}');
+    const savedProgress = JSON.parse(localStorage.getItem('language_completed_lessons') || '{}');
     const completedLessons = savedProgress[currentCourse.id] || [];
     
     if (completedLessons.length > 0) {
@@ -229,13 +153,13 @@ function loadProgress() {
 }
 
 function markLessonCompleted(lessonId) {
-    const savedProgress = JSON.parse(localStorage.getItem('languege_completed_lessons') || '{}');
+    const savedProgress = JSON.parse(localStorage.getItem('language_completed_lessons') || '{}');
     let completedLessons = savedProgress[currentCourse.id] || [];
     
     if (!completedLessons.includes(lessonId)) {
         completedLessons.push(lessonId);
         savedProgress[currentCourse.id] = completedLessons;
-        localStorage.setItem('languege_completed_lessons', JSON.stringify(savedProgress));
+        localStorage.setItem('language_completed_lessons', JSON.stringify(savedProgress));
         return true;
     }
     return false;
@@ -245,15 +169,14 @@ function renderCourse() {
     const container = document.getElementById('courseContainer');
     const currentLesson = currentCourse.lessons.find(l => l.id === currentLessonId);
     const currentIndex = currentCourse.lessons.findIndex(l => l.id === currentLessonId);
-    const completedLessons = JSON.parse(localStorage.getItem('languege_completed_lessons') || '{}')[currentCourse.id] || [];
+    const completedLessons = JSON.parse(localStorage.getItem('language_completed_lessons') || '{}')[currentCourse.id] || [];
     
     const lessonsSelect = `
         <div class="lessons-selector">
             <label class="selector-label">Выберите урок:</label>
             <select id="lessonSelect" class="lesson-select">
                 ${currentCourse.lessons.map((lesson, idx) => `
-                    <option value="${lesson.id}" ${lesson.id === currentLessonId ? 'selected' : ''} 
-                            ${completedLessons.includes(lesson.id) ? 'data-completed="true"' : ''}>
+                    <option value="${lesson.id}" ${lesson.id === currentLessonId ? 'selected' : ''}>
                         Урок ${idx + 1}: ${lesson.title} ${completedLessons.includes(lesson.id) ? '✓' : ''}
                     </option>
                 `).join('')}
@@ -269,14 +192,11 @@ function renderCourse() {
             <h1>${escapeHtml(currentCourse.title)}</h1>
             <div class="course-badge ${currentCourse.level}">${currentCourse.levelText}</div>
         </div>
-
         ${lessonsSelect}
-
         <div class="theory-content">
             <h2>${escapeHtml(currentLesson.title)}</h2>
             ${currentLesson.theory}
         </div>
-
         <div class="course-actions">
             <button class="btn btn-primary" id="nextLessonBtn">
                 ${nextLessonExists ? 'Следующий урок →' : 'Завершить курс'}
@@ -300,7 +220,6 @@ function renderCourse() {
             const wasUpdated = markLessonCompleted(currentLessonId);
             
             if (nextLessonExists) {
-                // Это НЕ последний урок - обновляем достижения сразу
                 if (wasUpdated) {
                     updateAchievements();
                 }
@@ -308,9 +227,8 @@ function renderCourse() {
                 renderCourse();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
-                // Это последний урок - отложим проверку достижений после перехода
                 if (wasUpdated) {
-                    localStorage.setItem('languege_check_achievements', 'true');
+                    localStorage.setItem('language_check_achievements', 'true');
                 }
                 window.location.href = 'courses.html';
             }

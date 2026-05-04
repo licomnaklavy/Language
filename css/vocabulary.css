@@ -89,7 +89,6 @@
     color: var(--danger);
 }
 
-/* Бейдж словаря у слова */
 .word-dict-badge {
     display: inline-block;
     font-size: 0.7rem;
@@ -100,7 +99,6 @@
     border-radius: 12px;
 }
 
-/* Остальные стили словаря */
 .page-header {
     text-align: center;
     padding: 20px 0 15px;
@@ -237,7 +235,6 @@
     border-radius: 8px;
 }
 
-/* Формат примера */
 .format-example {
     font-size: 0.85rem;
     color: var(--gray);
@@ -245,7 +242,6 @@
     font-family: monospace;
 }
 
-/* Форма импорта и создания */
 .form-group {
     margin-bottom: 20px;
 }
@@ -273,7 +269,6 @@
     background: var(--danger-dark);
 }
 
-/* Чекбоксы словарей для теста */
 .dict-checkboxes {
     display: flex;
     flex-direction: column;

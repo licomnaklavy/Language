@@ -22,11 +22,9 @@ const coursesData = [
 document.addEventListener('DOMContentLoaded', () => {
     renderCourses();
     
-    // Проверяем, нужно ли обновить достижения после возврата со страницы курса
-    const needCheck = localStorage.getItem('languege_check_achievements');
+    const needCheck = localStorage.getItem('language_check_achievements');
     if (needCheck === 'true') {
-        localStorage.removeItem('languege_check_achievements');
-        // Динамически импортируем achievements и обновляем
+        localStorage.removeItem('language_check_achievements');
         import('./achievements.js').then(module => {
             module.updateAchievements();
         });
@@ -46,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function getCourseProgress(courseId) {
-    const completedLessons = JSON.parse(localStorage.getItem('languege_completed_lessons') || '{}');
+    const completedLessons = JSON.parse(localStorage.getItem('language_completed_lessons') || '{}');
     const course = coursesData.find(c => c.id === courseId);
     if (!course) return 0;
     

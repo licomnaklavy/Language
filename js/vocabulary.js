@@ -5,12 +5,6 @@ let selectedDicts = [];
 let allDictionaries = [];
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // Проверяем, что api существует
-    if (typeof window.api === 'undefined') {
-        console.error('API не загружен');
-        return;
-    }
-
     await loadDictionaries();
     await loadVocabulary();
     
@@ -106,12 +100,12 @@ async function loadDictionaries() {
     const response = await api.getDictionaries();
     allDictionaries = response.data;
     
-    const savedSelected = localStorage.getItem('languege_selected_dicts');
+    const savedSelected = localStorage.getItem('language_selected_dicts');
     if (savedSelected) {
         selectedDicts = JSON.parse(savedSelected);
     } else {
         selectedDicts = allDictionaries.map(d => d.id);
-        localStorage.setItem('languege_selected_dicts', JSON.stringify(selectedDicts));
+        localStorage.setItem('language_selected_dicts', JSON.stringify(selectedDicts));
     }
     
     const dictsList = document.getElementById('dictsList');
@@ -136,7 +130,7 @@ async function loadDictionaries() {
             } else {
                 selectedDicts = selectedDicts.filter(id => id !== dictId);
             }
-            localStorage.setItem('languege_selected_dicts', JSON.stringify(selectedDicts));
+            localStorage.setItem('language_selected_dicts', JSON.stringify(selectedDicts));
             cb.closest('.dict-item').classList.toggle('selected', cb.checked);
             loadVocabulary();
         };
@@ -159,7 +153,7 @@ async function loadDictionaries() {
                 await api.deleteDictionary(dictId);
                 await loadDictionaries();
                 await loadVocabulary();
-                if (typeof updateAchievements === 'function') updateAchievements();
+                updateAchievements();
             }
         };
     });
@@ -254,7 +248,7 @@ async function loadVocabulary() {
                 await api.deleteWordFromDict(btn.dataset.id, btn.dataset.dict);
                 await loadDictionaries();
                 await loadVocabulary();
-                if (typeof updateAchievements === 'function') updateAchievements();
+                updateAchievements();
             }
         };
     });
@@ -314,7 +308,7 @@ async function saveWord() {
     closeModal();
     await loadDictionaries();
     await loadVocabulary();
-    if (typeof updateAchievements === 'function') updateAchievements();
+    updateAchievements();
 }
 
 function openModal() {
@@ -344,7 +338,7 @@ async function createDictionary() {
     closeCreateDictModal();
     await loadDictionaries();
     await loadVocabulary();
-    if (typeof updateAchievements === 'function') updateAchievements();
+    updateAchievements();
 }
 
 function openRenameDictModal(dictId, currentName) {
@@ -358,7 +352,7 @@ async function renameDictionary(dictId, newName) {
     await api.renameDictionary(dictId, newName);
     await loadDictionaries();
     await loadVocabulary();
-    if (typeof updateAchievements === 'function') updateAchievements();
+    updateAchievements();
 }
 
 async function openTestSettings() {
@@ -486,7 +480,7 @@ async function importWords() {
     closeImportModal();
     await loadDictionaries();
     await loadVocabulary();
-    if (typeof updateAchievements === 'function') updateAchievements();
+    updateAchievements();
 }
 
 function readFile(file) {
@@ -541,7 +535,7 @@ async function clearAllWords() {
     closeClearConfirmModal();
     await loadDictionaries();
     await loadVocabulary();
-    if (typeof updateAchievements === 'function') updateAchievements();
+    updateAchievements();
 }
 
 function escapeHtml(text) {

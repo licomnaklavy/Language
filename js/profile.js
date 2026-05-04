@@ -5,14 +5,13 @@ import {
     onAchievementsUpdate 
 } from './achievements.js';
 
-// Данные курсов
 const coursesList = [
     { id: 1, title: "Английский язык. Введение", lessons: 1 },
     { id: 2, title: "Английский язык. Времена", lessons: 2 }
 ];
 
 function getCompletedCoursesCount() {
-    const completedLessons = JSON.parse(localStorage.getItem('languege_completed_lessons') || '{}');
+    const completedLessons = JSON.parse(localStorage.getItem('language_completed_lessons') || '{}');
     let completedCourses = 0;
     
     for (const course of coursesList) {
@@ -25,7 +24,7 @@ function getCompletedCoursesCount() {
 }
 
 function getTotalLessonsCompleted() {
-    const completedLessons = JSON.parse(localStorage.getItem('languege_completed_lessons') || '{}');
+    const completedLessons = JSON.parse(localStorage.getItem('language_completed_lessons') || '{}');
     let totalLessons = 0;
     
     for (const courseId in completedLessons) {
@@ -35,7 +34,7 @@ function getTotalLessonsCompleted() {
 }
 
 function getVocabularyStats() {
-    const dictionaries = JSON.parse(localStorage.getItem('languege_dictionaries') || '[]');
+    const dictionaries = JSON.parse(localStorage.getItem('language_dictionaries') || '[]');
     let totalWords = 0;
     let totalDictionaries = dictionaries.length;
     
@@ -109,25 +108,22 @@ function loadAchievements() {
 }
 
 function refreshUI() {
-    updateAchievements();  // Здесь теперь показываются уведомления
+    updateAchievements();
     loadProfileStats();
     loadAchievements();
 }
 
-// Инициализация
 document.addEventListener('DOMContentLoaded', () => {
     refreshUI();
     
-    // Подписываемся на обновления достижений для обновления UI
     onAchievementsUpdate(() => {
         loadProfileStats();
         loadAchievements();
     });
 });
 
-// Обновляем при изменении данных в localStorage
 window.addEventListener('storage', (e) => {
-    if (e.key === 'languege_completed_lessons' || e.key === 'languege_dictionaries') {
+    if (e.key === 'language_completed_lessons' || e.key === 'language_dictionaries') {
         refreshUI();
     }
 });

@@ -43,7 +43,6 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
 .header {
     background: var(--white);
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -92,7 +91,6 @@ body {
     font-weight: 500;
 }
 
-/* Кнопки */
 .btn {
     padding: 10px 20px;
     border: none;
@@ -124,7 +122,6 @@ body {
     color: var(--white);
 }
 
-/* Формы */
 .form-input {
     width: 100%;
     padding: 10px 12px;
@@ -155,7 +152,6 @@ body {
     border-color: var(--primary);
 }
 
-/* Модалки */
 .modal {
     display: none;
     position: fixed;
@@ -208,7 +204,6 @@ body {
     padding: 20px;
 }
 
-/* Футер */
 .footer {
     background: var(--dark);
     color: var(--gray);
@@ -218,7 +213,6 @@ body {
     margin-top: auto;
 }
 
-/* Адаптив */
 @media (max-width: 600px) {
     .nav {
         gap: 10px;
@@ -234,7 +228,6 @@ body {
     }
 }
 
-/* Уведомления о достижениях */
 .achievement-notification {
     position: fixed;
     bottom: 30px;
@@ -325,7 +318,6 @@ body {
     }
 }
 
-/* Анимации для уведомлений */
 @keyframes notificationSlideIn {
     from {
         transform: translateX(100%);

@@ -56,7 +56,6 @@ async function loadAllWords() {
 }
 
 async function startTest() {
-    // Вопросы ТОЛЬКО из выбранных словарей (allWordsFromSelectedDicts)
     const sourceWordsForQuestions = [...allWordsFromSelectedDicts];
     
     if (sourceWordsForQuestions.length === 0) {
@@ -75,7 +74,6 @@ async function startTest() {
         questionsToTake = Math.min(10, sourceWordsForQuestions.length);
     }
     
-    // Перемешиваем слова для вопросов
     const shuffled = [...sourceWordsForQuestions];
     for (let i = shuffled.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -147,19 +145,15 @@ function getOptionsForEn2Ru(currentWord) {
     let poolWords = [];
     
     if (questionMode === 'strict') {
-        // Режим 1: варианты ТОЛЬКО из слов, участвующих в тесте (testWords)
         poolWords = testWords.filter(w => w.id !== currentWord.id);
     } else if (questionMode === 'selected_dicts') {
-        // Режим 2: варианты из ВСЕХ слов выбранных словарей
         poolWords = allWordsFromSelectedDicts.filter(w => w.id !== currentWord.id);
     } else {
-        // Режим 3: варианты из ВСЕХ словарей пользователя
         poolWords = allWordsFromAllDicts.filter(w => w.id !== currentWord.id);
     }
     
     const translations = poolWords.map(w => w.translation);
     
-    // Перемешиваем
     for (let i = translations.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [translations[i], translations[j]] = [translations[j], translations[i]];
@@ -179,13 +173,10 @@ function getOptionsForRu2En(currentWord) {
     let poolWords = [];
     
     if (questionMode === 'strict') {
-        // Режим 1: варианты ТОЛЬКО из слов, участвующих в тесте (testWords)
         poolWords = testWords.filter(w => w.id !== currentWord.id);
     } else if (questionMode === 'selected_dicts') {
-        // Режим 2: варианты из ВСЕХ слов выбранных словарей
         poolWords = allWordsFromSelectedDicts.filter(w => w.id !== currentWord.id);
     } else {
-        // Режим 3: варианты из ВСЕХ словарей пользователя
         poolWords = allWordsFromAllDicts.filter(w => w.id !== currentWord.id);
     }
     

@@ -3,14 +3,13 @@
  * Модуль для управления достижениями
  */
 
-// Список всех достижений
 const achievementsList = [
     {
         id: 1,
         title: "Первые шаги",
         description: "Завершите первый урок",
         check: () => {
-            const completedLessons = JSON.parse(localStorage.getItem('languege_completed_lessons') || '{}');
+            const completedLessons = JSON.parse(localStorage.getItem('language_completed_lessons') || '{}');
             let totalLessons = 0;
             for (const courseId in completedLessons) {
                 totalLessons += completedLessons[courseId].length;
@@ -18,7 +17,7 @@ const achievementsList = [
             return totalLessons >= 1;
         },
         getProgress: () => {
-            const completedLessons = JSON.parse(localStorage.getItem('languege_completed_lessons') || '{}');
+            const completedLessons = JSON.parse(localStorage.getItem('language_completed_lessons') || '{}');
             let totalLessons = 0;
             for (const courseId in completedLessons) {
                 totalLessons += completedLessons[courseId].length;
@@ -31,7 +30,7 @@ const achievementsList = [
         title: "Любознательный",
         description: "Добавьте 50 слов в словари",
         check: () => {
-            const dictionaries = JSON.parse(localStorage.getItem('languege_dictionaries') || '[]');
+            const dictionaries = JSON.parse(localStorage.getItem('language_dictionaries') || '[]');
             let totalWords = 0;
             for (const dict of dictionaries) {
                 totalWords += dict.words.length;
@@ -39,7 +38,7 @@ const achievementsList = [
             return totalWords >= 50;
         },
         getProgress: () => {
-            const dictionaries = JSON.parse(localStorage.getItem('languege_dictionaries') || '[]');
+            const dictionaries = JSON.parse(localStorage.getItem('language_dictionaries') || '[]');
             let totalWords = 0;
             for (const dict of dictionaries) {
                 totalWords += dict.words.length;
@@ -52,22 +51,20 @@ const achievementsList = [
         title: "Полиглот",
         description: "Создайте 2 словаря",
         check: () => {
-            const dictionaries = JSON.parse(localStorage.getItem('languege_dictionaries') || '[]');
+            const dictionaries = JSON.parse(localStorage.getItem('language_dictionaries') || '[]');
             return dictionaries.length >= 2;
         },
         getProgress: () => {
-            const dictionaries = JSON.parse(localStorage.getItem('languege_dictionaries') || '[]');
+            const dictionaries = JSON.parse(localStorage.getItem('language_dictionaries') || '[]');
             return { current: Math.min(dictionaries.length, 2), total: 2 };
         }
     }
 ];
 
-// Получить список разблокированных достижений
 export function getUnlockedAchievements() {
-    return JSON.parse(localStorage.getItem('languege_unlocked_achievements') || '[]');
+    return JSON.parse(localStorage.getItem('language_unlocked_achievements') || '[]');
 }
 
-// Показать уведомление о достижении
 function showAchievementNotification(achievement) {
     const notification = document.createElement('div');
     notification.className = 'achievement-notification';
@@ -95,7 +92,6 @@ function showAchievementNotification(achievement) {
     
     document.body.appendChild(notification);
     
-    // Автоматическое удаление через 2 секунды
     setTimeout(() => {
         if (notification.parentNode) {
             notification.style.animation = 'notificationSlideOut 0.2s ease forwards';
@@ -104,7 +100,6 @@ function showAchievementNotification(achievement) {
     }, 2000);
 }
 
-// Проверить и обновить достижения
 export function updateAchievements() {
     const unlockedAchievements = getUnlockedAchievements();
     let updated = false;
@@ -119,20 +114,16 @@ export function updateAchievements() {
     }
     
     if (updated) {
-        localStorage.setItem('languege_unlocked_achievements', JSON.stringify(unlockedAchievements));
-        
-        // Показываем уведомления для новых достижений
+        localStorage.setItem('language_unlocked_achievements', JSON.stringify(unlockedAchievements));
         newAchievements.forEach(achievement => {
             showAchievementNotification(achievement);
         });
-        
         window.dispatchEvent(new CustomEvent('achievements-updated'));
     }
     
     return unlockedAchievements;
 }
 
-// Получить статистику по достижениям
 export function getAchievementsStats() {
     const unlocked = getUnlockedAchievements();
     return {
@@ -141,7 +132,6 @@ export function getAchievementsStats() {
     };
 }
 
-// Получить данные для отображения всех достижений (с прогрессом)
 export function getAllAchievementsWithProgress() {
     const unlocked = getUnlockedAchievements();
     
@@ -160,7 +150,6 @@ export function getAllAchievementsWithProgress() {
     });
 }
 
-// Подписаться на обновления достижений
 export function onAchievementsUpdate(callback) {
     window.addEventListener('achievements-updated', callback);
     return () => window.removeEventListener('achievements-updated', callback);
